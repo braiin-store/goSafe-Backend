@@ -1,10 +1,12 @@
-import { DataTypes, Model} from 'sequelize';
+import { DataTypes, Model } from 'sequelize';
 import sequelize from '../config/sequelize';
 
-class Cliente extends Model{}
+class Cliente extends Model { }
+class Direccion extends Model { }
+class ContactoAuxilio extends Model { }
 
 Cliente.init({
-    id:{
+    id: {
         type: DataTypes.BIGINT,
         primaryKey: true,
         autoIncrement: true,
@@ -15,12 +17,12 @@ Cliente.init({
         type: DataTypes.INTEGER,
         unique: true,
     },
-    direccion:{
-        type:DataTypes.STRING,
+    direccion: {
+        type: DataTypes.STRING,
         allowNull: true,
-        defaultValue:""
+        defaultValue: ""
     },
-    correo:{
+    correo: {
         type: DataTypes.STRING,
         unique: true,
     },
@@ -29,8 +31,38 @@ Cliente.init({
         allowNull: true,
     },
     estado: DataTypes.BOOLEAN,
-},{
+}, {
     sequelize
 })
 
-export default Cliente;
+Direccion.init({
+    id: {
+        type: DataTypes.BIGINT,
+        primaryKey: true,
+        autoIncrement: true,
+        autoIncrementIdentity: true,
+    },
+    nombre: DataTypes.STRING,
+    location: DataTypes.GEOMETRY('POINT'),
+}, { sequelize })
+
+ContactoAuxilio.init({
+    id: {
+        type: DataTypes.BIGINT,
+        primaryKey: true,
+        autoIncrement: true,
+        autoIncrementIdentity: true,
+    },
+    nombre: DataTypes.STRING,
+    nro: DataTypes.INTEGER,
+    descripcion: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+    },
+}, { sequelize });
+
+export {
+    Cliente,
+    Direccion,
+    ContactoAuxilio,
+};

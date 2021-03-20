@@ -10,11 +10,11 @@ Calificacion.init({
         autoIncrement: true,
         autoIncrementIdentity: true,
     },
-    limpia: DataTypes.STRING,
-    conversacion: DataTypes.STRING,
     musica: DataTypes.STRING,
-    Responsabilidad: DataTypes.STRING,
+    limpia: DataTypes.STRING,
     temperatura: DataTypes.STRING,
+    conversacion: DataTypes.STRING,
+    Responsabilidad: DataTypes.STRING,
 }, { sequelize })
 
 export default Calificacion;

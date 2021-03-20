@@ -8,7 +8,7 @@ import sequelize from './config/sequelize'
 const app = express()
 
 sequelize.authenticate()
-    // .then(() => sequelize.sync({ force: true }))
+    .then(() => sequelize.sync({ force: true }))
 
 app
     .use(cors())
