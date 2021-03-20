@@ -11,8 +11,7 @@ Direccion.init({
         autoIncrementIdentity: true,
     },
     nombre: DataTypes.STRING,
-    latitud: DataTypes.DOUBLE,
-    longitud: DataTypes.DOUBLE,
+    location: DataTypes.GEOMETRY('POINT'),
 }, {
     sequelize
 });
