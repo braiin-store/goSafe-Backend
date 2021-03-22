@@ -12,13 +12,14 @@ User.init({
         autoIncrementIdentity: true,
     },
     email: {
-        type: DataTypess.string,
+        type: DataTypes.STRING,
         unique: true,
     },
     password: {
         type: DataTypes.STRING,
-    }
-}, sequelize);
+        allowNull: false,
+    },
+}, { sequelize });
 
 Role.init({
     id: {
@@ -31,7 +32,7 @@ Role.init({
         type: DataTypes.STRING,
         unique: true,
     }
-}, sequelize);
+}, { sequelize });
 
 export {
     User, Role
