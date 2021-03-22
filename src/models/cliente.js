@@ -30,7 +30,10 @@ Cliente.init({
         type: DataTypes.STRING,
         allowNull: true,
     },
-    estado: DataTypes.BOOLEAN,
+    estado: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+    },
 }, {
     sequelize
 })
