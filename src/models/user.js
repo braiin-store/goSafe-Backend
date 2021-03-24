@@ -11,6 +11,7 @@ User.init({
         autoIncrement: true,
         autoIncrementIdentity: true,
     },
+    name: DataTypes.STRING,
     email: {
         type: DataTypes.STRING,
         unique: true,
@@ -19,6 +20,8 @@ User.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
+
+    token: DataTypes.TEXT,
 }, { sequelize });
 
 Role.init({

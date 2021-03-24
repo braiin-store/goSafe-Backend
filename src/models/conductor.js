@@ -10,7 +10,6 @@ Conductor.init({
         autoIncrement: true,
         autoIncrementIdentity: true,
     },
-
     nombre: DataTypes.STRING,
     celular: {
         type: DataTypes.INTEGER,

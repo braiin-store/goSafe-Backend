@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --detectOpenHandles",
+    "seed": "babel-node seeders/main.seeder.js --exit",
     "start": "babel-node index.js"
   },
   "repository": {
