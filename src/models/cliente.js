@@ -13,6 +13,7 @@ Cliente.init({
         autoIncrementIdentity: true,
     },
     nombre: DataTypes.STRING,
+    public_id: DataTypes.STRING,
     celular: {
         type: DataTypes.INTEGER,
         unique: true,

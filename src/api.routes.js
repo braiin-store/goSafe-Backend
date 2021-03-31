@@ -6,7 +6,7 @@ import conductor from './controllers/conductor.controller'
 
 import auth from './middlewares/auth.middleware'
 
-const router = Router({ strict: true })
+const router = Router()
 
 router
     // CLIENTES
@@ -25,4 +25,5 @@ router
     .post('/signup', user.store)
     .post('/signin', auth.verifyLogin, user.show)
     .post('/signout', auth.verifyToken, user.signout)
+
 export default router

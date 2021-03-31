@@ -10,7 +10,7 @@ const sequelize = new Sequelize(
         database: process.env.DB_NAME,
         username: process.env.DB_USER,
         password: process.env.DB_PASS,
-        logging: true,
+        // logging: false,
         define: {
             paranoid: true,
             defaultScope: {
@@ -23,4 +23,5 @@ const sequelize = new Sequelize(
         },
     }
 )
+
 export default sequelize;

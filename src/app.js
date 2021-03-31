@@ -8,13 +8,13 @@ import sequelize from './config/sequelize'
 const app = express()
 
 sequelize.authenticate()
-    // .then(() => sequelize.sync({ force: true }))
+//    .then(() => sequelize.sync({ force: true }))
 
 app
     .use(cors())
     .use(morgan('dev'))
 
-    .use(express.json())
+    .use(express.json({ limit: process.env.BODY_SIZE }))
     .use(express.urlencoded({ extended: false }))
 
     .use('/api', routes)
