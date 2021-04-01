@@ -23,7 +23,7 @@ class ClienteController extends Controller {
 
     update = async ({ body, params }, res) => {
         try {
-            if (body.foto.includes('data:image/') && body.public_id) {
+            if (body.foto?.includes('data:image/') && body.public_id) {
                 let apiRes = await cloud.uploadBase64(body.foto, body.public_id)
                 body.foto = apiRes.secure_url
             }
