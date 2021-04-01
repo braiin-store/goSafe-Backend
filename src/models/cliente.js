@@ -21,7 +21,6 @@ Cliente.init({
     direccion: {
         type: DataTypes.STRING,
         allowNull: true,
-        defaultValue: ""
     },
     correo: {
         type: DataTypes.STRING,
@@ -33,7 +32,7 @@ Cliente.init({
     },
     estado: {
         type: DataTypes.BOOLEAN,
-        defaultValue: true,
+        defaultValue: false,
     },
 }, {
     sequelize

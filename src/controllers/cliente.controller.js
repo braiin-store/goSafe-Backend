@@ -28,9 +28,9 @@ class ClienteController extends Controller {
                 body.foto = apiRes.secure_url
             }
 
-            let cliente = await Cliente.update(body, { where: { id: params.id } })
-
-            return res.status(200).json(cliente)
+            return res
+                .status(200)
+                .json(await Cliente.update(body, { where: { id: params.id } }))
         } catch (error) {
             console.error(error);
             return res.status(500).json({ error })

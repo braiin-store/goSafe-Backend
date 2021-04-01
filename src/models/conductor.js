@@ -20,7 +20,14 @@ Conductor.init({
         type: DataTypes.STRING,
         unique: true,
     },
+    
     foto: DataTypes.STRING,
+    public_id: DataTypes.STRING,
+    
+    estado: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+    },
     cedula: {
         unique: true,
         type: DataTypes.INTEGER,
