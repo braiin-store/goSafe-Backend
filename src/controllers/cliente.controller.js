@@ -1,4 +1,5 @@
 import cloud from '../services/cloudinary'
+import multer from '../services/multer'
 
 import { Cliente } from '../config/relationships'
 import { Controller } from '../config/controller'
@@ -9,9 +10,9 @@ class ClienteController extends Controller {
 
     store = async ({ body }, res) => {
         try {
-            let apiRes = await cloud.uploadBase64(body.foto)
+            let apiRes =  multer.single('image')
 
-            body.foto = apiRes.secure_url
+            body.foto = apiRes.file
             body.public_id = apiRes.public_id
 
             return res.status(200).json(await Cliente.create(body))

@@ -5,6 +5,7 @@ import express from 'express'
 import routes from './api.routes'
 import sequelize from './config/sequelize'
 
+
 const app = express()
 
 sequelize.authenticate()

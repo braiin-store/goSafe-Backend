@@ -7,6 +7,7 @@ cloudinary.config({
 })
 
 const uploadBase64 = async (base64Str, public_id = null) => {
+    Date.now()
     return await cloudinary.v2.uploader.upload(base64Str, {
         public_id,
         overwrite: true,
