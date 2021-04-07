@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --detectOpenHandles",
     "seed": "babel-node seeders/main.seeder.js --exit",
-    "start": "babel-node index.js"
+    "start": "babel-node index.js",
+    "dev": "nodemon --exec babel-node index.js"
   },
   "repository": {
     "type": "git",
@@ -19,15 +20,14 @@
   },
   "homepage": "https://github.com/braiin-store/goSafe-Backend#readme",
   "dependencies": {
-    "bcrypt": "^5.0.1",
-    "cloudinary": "^1.25.1",
     "cors": "^2.8.5",
+    "bcrypt": "^5.0.1",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-validator": "^6.10.0",
-    "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.5.1"
+    "express": "^4.17.1",
+    "sequelize": "^6.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "express-validator": "^6.10.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.10",

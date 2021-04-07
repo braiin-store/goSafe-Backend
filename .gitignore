@@ -1,6 +1,7 @@
 # directories
 /.vscode
 /seeders
+/public
 /node_modules
 # files
 .env

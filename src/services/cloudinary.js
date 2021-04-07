@@ -1,23 +1,27 @@
-import cloudinary from 'cloudinary'
+import fs from 'fs'
 
-cloudinary.config({
-    api_key: process.env.API_KEY,
-    api_secret: process.env.API_SECRET,
-    cloud_name: process.env.CLOUD_NAME,
-})
+const base64Obj = base64Str => {
+    let base64 = base64Str.split(';base64,')
+    return {
+        data: base64.pop(),
+        ext: base64[0].split('/').pop(),
+    }
+}
 
-const uploadBase64 = async (base64Str, public_id = null) => {
-    return await cloudinary.v2.uploader.upload(base64Str, {
+export const uploadBase64 = (base64Str, public_id = null) => {
+    let base64 = base64Obj(base64Str)
+    public_id ??= `${Date.now()}.${base64.ext}`
+    
+    let path = `public/${public_id}`
+    fs.writeFileSync(path, base64.data, { encoding: 'base64' })
+
+    return {
         public_id,
-        overwrite: true,
-        invalidate: true,
-    })
+        url: `${process.env.APP_URL}/${path}`,
+    }
 }
 
-const destroyIMG = async (public_id) => {
-    return await cloudinary.v2.uploader.destroy(public_id)
-}
-
-export default {
-    uploadBase64, destroyIMG
+export const destroyIMG = (public_id) => {
+    let path = `public/${public_id}`
+    fs.unlinkSync(path)
 }

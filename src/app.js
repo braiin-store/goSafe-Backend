@@ -14,10 +14,11 @@ app
     .use(cors())
     .use(morgan('dev'))
 
-    .use(express.json({ limit: process.env.BODY_SIZE }))
     .use(express.urlencoded({ extended: false }))
-
+    .use(express.json({ limit: process.env.BODY_SIZE }))
+    
     .use('/api', routes)
+    .use('/public', express.static('public'))
     .use('/', (_, res) => res.send('<h1>Welcome to goSafe API!</h1>'))
 
 export default app
