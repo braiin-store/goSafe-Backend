@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'  
 
 import { User } from '../config/relationships'
 
@@ -10,10 +10,10 @@ const verifyLogin = async (req, res, next) => {
         if (!user) {
             throw new Error('404,User Not Found')
         }
-
+        
         let hashedPassword = user.getDataValue('password')
         let validPassword = await bcrypt.compare(password, hashedPassword)
-
+        console.log(validPassword);
         if (!validPassword) {
             throw new Error('401,Wrong Password')
         }

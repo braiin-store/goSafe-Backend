@@ -4,12 +4,14 @@ import express from 'express'
 
 import routes from './api.routes'
 import sequelize from './config/sequelize'
+import userController from './controllers/user.controller'
 
 
 const app = express()
 
 sequelize.authenticate()
 //    .then(() => sequelize.sync({ force: true }))
+userController.autoCreateAdmin();
 
 app
     .use(cors())

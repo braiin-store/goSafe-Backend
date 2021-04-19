@@ -12,7 +12,19 @@ class UserController extends Controller {
     constructor() {
         super(User)
     }
-
+    autoCreateAdmin= async()=>{
+       try {
+        const user = await User.findByPk(1); //root admin id
+        if (user==null){
+            let hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD, 10)
+            const rootUser={id:1,name:'administrador',email:process.env.ADMIN_MAIL,password:hashedPassword,RoleId:1}
+            console.log(rootUser);
+             await User.create(rootUser)
+        }
+       } catch (error) {
+         console.log(error);  
+       }
+    }
     store = async ({ body }, res) => {
         try {
             let hashedPassword = await bcrypt.hash(body['password'], 10)
@@ -23,7 +35,7 @@ class UserController extends Controller {
             let user = await User.create(body)
             let token = generateToken(user.toJSON())
 
-            res.json(await user.update({ token }))
+            res.status(200).json(await user.update({ token }))
         } catch (error) {
             console.log(error);
             res.status(500).json(error);
@@ -35,7 +47,7 @@ class UserController extends Controller {
             let userID = req.body['userID']
             let user = await User.findOne({ where: { id: userID } })
 
-            res.json(await user.update({ token: null }))
+            res.status(200).json(await user.update({ token: null }))
         } catch (error) {
             console.error(error);
             res.status(500).json({ error })
@@ -44,12 +56,13 @@ class UserController extends Controller {
 
     show = async (req, res) => {
         try {
+            console.log(req.body);
             let user = req.body['user']
 
             user.set('token', null)
             let token = generateToken(user.toJSON())
 
-            res.json(await user.update({ token }))
+            res.status(200).json(await user.update({ token }))
         } catch (error) {
             res.status(500).json({ error })
         }
