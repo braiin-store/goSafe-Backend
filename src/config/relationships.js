@@ -6,6 +6,8 @@ import Calificacion from '../models/calificacion'
 import { User, Role } from '../models/user'
 import { Cliente, Direccion, ContactoAuxilio } from '../models/cliente'
 
+import {Suscripcion,DetalleSuscripcion,Resultado,TipoPago,} from '../models/suscripcion'
+
 Role.hasMany(User)
 User.belongsTo(Role)
 
@@ -24,6 +26,10 @@ ContactoAuxilio.belongsTo(Conductor)
 Conductor.hasOne(Calificacion)
 Calificacion.belongsTo(Conductor)
 
+
+Suscripcion.hasMany(DetalleSuscripcion);
+Conductor.hasMany(DetalleSuscripcion);
+Suscripcion.belongsToMany(Conductor,{through:DetalleSuscripcion})
 export {
     User,
     Role,
@@ -37,4 +43,7 @@ export {
     Cliente,
     Direccion,
     ContactoAuxilio,
+
+    Suscripcion,
+    DetalleSuscripcion
 }
