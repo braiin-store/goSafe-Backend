@@ -5,6 +5,7 @@ class SuscripcionController extends Controller {
     constructor() {
         super(Suscripcion)
     }
+    
 }
 
 export default new SuscripcionController()

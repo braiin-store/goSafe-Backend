@@ -16,7 +16,8 @@ router
     .put('/clientes/:id', cliente.update)
     .delete('/clientes/:id', cliente.destroy)
     // CONDUCTORES
-    .get('/conductores', conductor.all)
+    .get('/conductores', conductor.allWithSuscriptions)
+    .get('/conductores/suscripciones', conductor.allWithSuscriptions)
     .post('/conductores', conductor.store)
     .get('/conductores/:id', conductor.find)
     .put('/conductores/:id', conductor.update)

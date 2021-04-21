@@ -33,8 +33,8 @@ DetalleSuscripcion.init({
         type: DataTypes.STRING,
         allowNull: true,
     },
-    fechaInicio: DataTypes.TIME,
-    fechaFin: DataTypes.TIME,
+    fechaInicio: DataTypes.DATE,
+    fechaFin: DataTypes.DATE,
 }, { sequelize });
 
 TipoPago.init({

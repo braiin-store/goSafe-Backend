@@ -28,8 +28,10 @@ Calificacion.belongsTo(Conductor)
 
 
 Suscripcion.hasMany(DetalleSuscripcion);
+DetalleSuscripcion.belongsTo(Suscripcion);
 Conductor.hasMany(DetalleSuscripcion);
 Suscripcion.belongsToMany(Conductor,{through:DetalleSuscripcion})
+Conductor.belongsToMany(Suscripcion,{through:DetalleSuscripcion})
 export {
     User,
     Role,

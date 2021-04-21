@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
-import { User } from '../config/relationships'
+import { Role, User } from '../config/relationships'
 import { Controller } from '../config/controller'
 
 const generateToken = (payload) => jwt.sign(payload, process.env.JWT_SECRET, {
@@ -15,7 +15,12 @@ class UserController extends Controller {
     autoCreateAdmin= async()=>{
        try {
         const user = await User.findByPk(1); //root admin id
+        const role =await Role.findByPk(1);
+        
         if (user==null){
+            if(role==null){
+                await Role.create({id:1,name:'administrador'})
+            }
             let hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD, 10)
             const rootUser={id:1,name:'administrador',email:process.env.ADMIN_MAIL,password:hashedPassword,RoleId:1}
             console.log(rootUser);
