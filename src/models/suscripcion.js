@@ -15,6 +15,7 @@ Suscripcion.init({
     },
     tipo: DataTypes.STRING,
     estado: DataTypes.BOOLEAN,
+    dias: DataTypes.BIGINT,
     precio: DataTypes.FLOAT,
     descuento: DataTypes.BOOLEAN,
 

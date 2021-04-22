@@ -3,6 +3,7 @@ import { Router } from 'express'
 import user from './controllers/user.controller'
 import cliente from './controllers/cliente.controller'
 import conductor from './controllers/conductor.controller'
+import suscripcion from './controllers/suscripcion.controller'
 
 import auth from './middlewares/auth.middleware'
 
@@ -22,6 +23,10 @@ router
     .get('/conductores/:id', conductor.find)
     .put('/conductores/:id', conductor.update)
     .delete('/conductores/:id', conductor.destroy)
+    //SUSCRIPCIONES
+    .post('/conductores/suscribir', suscripcion.susbscribeDriver)
+
+    
     // LOGIN
     .post('/signup', user.store)
     .post('/signin', auth.verifyLogin, user.show)
