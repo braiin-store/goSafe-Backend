@@ -21,7 +21,9 @@ class SuscripcionController extends Controller {
 				precio: subscription.precio,
 				descuento: subscription.descuento,
 				fechaInicio,
-				fechaFin
+				fechaFin,
+                SuscripcionId:body.suscripcion.id,
+                ConductorId:body.conductorId
 			});
 			res.status(200).json({msg:'ok'});
 		} catch (error) {

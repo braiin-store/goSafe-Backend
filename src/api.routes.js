@@ -25,7 +25,7 @@ router
     .delete('/conductores/:id', conductor.destroy)
     //SUSCRIPCIONES
     .post('/conductores/suscribir', suscripcion.susbscribeDriver)
-    // .get('/suscripc')
+    .get('/suscripciones',suscripcion.all)
     
     // LOGIN
     .post('/signup', user.store)

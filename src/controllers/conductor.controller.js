@@ -1,4 +1,3 @@
-
 import { Op } from "sequelize";
 import { Controller } from "../config/controller";
 import {
@@ -16,18 +15,21 @@ class ConductorController extends Controller {
 	allWithSuscriptions = async ({ body }, res) => {
 		try {
 			const fechaActual = new Date();
-           
+
 			const allDrivers = await Conductor.findAll({
-				include:[{ 
-					model: DetalleSuscripcion,
-					include: [{ model: Suscripcion }],
-					 where: {
-					 	fechaInicio:{[Op.lte]:  fechaActual },
-                         fechaFin:{[Op.gte]:  fechaActual },
-					 },
-					 limit:1,
-					 required: false, //eager loading
-				 as:'DetalleSuscripcions'} ]
+				include: [
+					{
+						model: DetalleSuscripcion,
+						include: [{ model: Suscripcion }],
+						where: {
+							fechaInicio: { [Op.lte]: fechaActual },
+							fechaFin: { [Op.gte]: fechaActual },
+						},
+						limit: 1,
+						required: false, //eager loading
+						// as: "DetalleSuscripcions",
+					},
+				],
 			});
 			console.log(allDrivers);
 			return res.status(200).json(allDrivers);
