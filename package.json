@@ -21,14 +21,15 @@
   },
   "homepage": "https://github.com/braiin-store/goSafe-Backend#readme",
   "dependencies": {
-    "cors": "^2.8.5",
     "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "mysql2": "^2.2.5",
     "express": "^4.17.1",
-    "sequelize": "^6.5.1",
+    "express-validator": "^6.10.0",
     "jsonwebtoken": "^8.5.1",
-    "express-validator": "^6.10.0"
+    "moment": "^2.29.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.10",
