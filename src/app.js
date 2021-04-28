@@ -10,8 +10,11 @@ import userController from './controllers/user.controller'
 const app = express()
 
 sequelize.authenticate()
-//    .then(() => sequelize.sync({ force: true }))
-userController.autoCreateAdmin();
+    .then(async () => {
+        await sequelize.sync({ force: true })
+        // await userController.autoCreateAdmin();
+    }).catch(e => console.log(e));
+
 
 app
     .use(cors())
@@ -19,7 +22,7 @@ app
 
     .use(express.urlencoded({ extended: false }))
     .use(express.json({ limit: process.env.BODY_SIZE }))
-    
+
     .use('/api', routes)
     .use('/public', express.static('public'))
     .use('/', (_, res) => res.send('<h1>Welcome to goSafe API!</h1>'))

@@ -1,6 +1,7 @@
 # directories
 /.vscode
 /seeders
+/dist
 /public
 /node_modules
 # files

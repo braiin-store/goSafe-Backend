@@ -34,9 +34,7 @@ Cliente.init({
         type: DataTypes.BOOLEAN,
         defaultValue: false,
     },
-}, {
-    sequelize
-})
+}, { sequelize })
 
 Direccion.init({
     id: {

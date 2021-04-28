@@ -1,4 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
+
 import sequelize from '../config/sequelize';
 
 class Conductor extends Model { }
@@ -10,20 +11,22 @@ Conductor.init({
         autoIncrement: true,
         autoIncrementIdentity: true,
     },
+
     nombre: DataTypes.STRING,
     celular: {
         type: DataTypes.INTEGER,
         unique: true,
     },
+
     direccion: DataTypes.STRING,
     correo: {
         type: DataTypes.STRING,
         unique: true,
     },
-    
+
     foto: DataTypes.STRING,
     public_id: DataTypes.STRING,
-    
+
     estado: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
@@ -35,7 +38,7 @@ Conductor.init({
     descuento: {
         type: DataTypes.FLOAT,
         defaultValue: 0,
-    }
+    },
 }, { sequelize })
 
 export default Conductor;
