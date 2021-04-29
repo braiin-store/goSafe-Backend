@@ -9,4 +9,4 @@
 .env
 .env.sample
 .gitignore
-*.md
+README.md
