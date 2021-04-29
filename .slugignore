@@ -10,4 +10,3 @@
 .env.sample
 .gitignore
 *.md
-index.js
