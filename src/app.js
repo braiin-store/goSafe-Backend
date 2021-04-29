@@ -5,14 +5,15 @@ import express from 'express'
 import routes from './api.routes'
 import sequelize from './config/sequelize'
 // import userController from './controllers/user.controller'
+import userController from './controllers/user.controller'
 
 
 const app = express()
 
 sequelize.authenticate()
     .then(async () => {
-        await sequelize.sync({ force: true })
-        // await userController.autoCreateAdmin();
+        // await sequelize.sync({ force: true })
+        await userController.autoCreateAdmin()
     }).catch(e => console.log(e));
 
 

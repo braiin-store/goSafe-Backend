@@ -14,11 +14,20 @@ class UserController extends Controller {
     }
     autoCreateAdmin = async () => {
         try {
-            const user = await User.findByPk(1); //root admin id
-            if (user == null) {
+            // root admin id
+            const user = await User.findByPk(0);
+            
+            if (!user) {
                 let hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD, 10)
-                const rootUser = { id: 1, name: 'administrador', email: process.env.ADMIN_MAIL, password: hashedPassword, RoleId: 1 }
-                console.log(rootUser);
+
+                const rootUser = {
+                    id: 0,
+                    name: 'administrador',
+                    email: process.env.ADMIN_MAIL,
+                    password: hashedPassword,
+                    RoleId: 1,
+                }
+                
                 await User.create(rootUser)
             }
         } catch (error) {

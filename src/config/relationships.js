@@ -6,7 +6,7 @@ import Calificacion from '../models/calificacion'
 import { User, Role } from '../models/user'
 import { Cliente, Direccion, ContactoAuxilio } from '../models/cliente'
 
-import {Suscripcion,DetalleSuscripcion,Resultado,TipoPago,} from '../models/suscripcion'
+import { Suscripcion, DetalleSuscripcion, Resultado, TipoPago, } from '../models/suscripcion'
 
 Role.hasMany(User)
 User.belongsTo(Role)
