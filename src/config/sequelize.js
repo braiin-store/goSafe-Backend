@@ -11,6 +11,12 @@ const sequelize = new Sequelize(
         username: process.env.DB_USER,
         password: process.env.DB_PASS,
         // logging: false,
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+        },
         define: {
             paranoid: true,
             defaultScope: {

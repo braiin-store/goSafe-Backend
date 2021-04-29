@@ -10,7 +10,7 @@
     "clean": "rm -rf dist && mkdir dist",
     "build": "babel -d ./dist ./src -s",
     "heroku-postbuild": "npm run build",
-    "start": "npm run build && node dist/index.js",
+    "start": "node dist/index.js",
     "dev": "nodemon --exec babel-node index.js"
   },
   "repository": {
