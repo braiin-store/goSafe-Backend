@@ -2,12 +2,8 @@
   "name": "backend",
   "version": "1.0.0",
   "type": "commonjs",
-  "description": "goSafe backend",
   "main": "index.js",
-  "engines": {
-    "node": "14.x",
-    "npm": "7.x"
-  },
+  "description": "goSafe backend",
   "scripts": {
     "test": "jest --detectOpenHandles",
     "seed": "babel-node seeders/main.seeder.js --exit",
