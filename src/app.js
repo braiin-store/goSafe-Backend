@@ -4,7 +4,7 @@ import express from 'express'
 
 import routes from './api.routes'
 import sequelize from './config/sequelize'
-import userController from './controllers/user.controller'
+// import userController from './controllers/user.controller'
 
 
 const app = express()
