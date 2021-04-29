@@ -14,9 +14,9 @@ Viaje.init({
     monto: DataTypes.FLOAT,
     origen: DataTypes.GEOMETRY('POINT'),
     destino: DataTypes.GEOMETRY('POINT'),
-    status: DataTypes.JSON,
+    status: DataTypes.STRING,
     responsableCancel: DataTypes.BOOLEAN,
-    calificacionConductor: DataTypes.JSON,
+    calificacionConductor: DataTypes.STRING,
 }, {
     sequelize
 })
