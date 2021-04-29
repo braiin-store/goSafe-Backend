@@ -4,13 +4,17 @@
   "type": "commonjs",
   "description": "goSafe backend",
   "main": "index.js",
+  "engines": {
+    "node": "14.x",
+    "npm": "7.x"
+  },
   "scripts": {
     "test": "jest --detectOpenHandles",
     "seed": "babel-node seeders/main.seeder.js --exit",
     "clean": "rm -rf dist && mkdir dist",
     "build": "babel -d ./dist ./src -s",
     "heroku-postbuild": "npm run build",
-    "start": "node dist/index.js",
+    "start": "npm run build && node dist/index.js",
     "dev": "nodemon --exec babel-node index.js"
   },
   "repository": {
@@ -35,6 +39,8 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.16",
+    "@babel/node": "^7.13.10",
     "@babel/plugin-proposal-class-properties": "7.13.0",
     "@babel/plugin-transform-runtime": "^7.13.15",
     "@babel/preset-env": "^7.13.10",
