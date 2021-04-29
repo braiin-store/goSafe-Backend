@@ -7,7 +7,7 @@
     "test": "jest --detectOpenHandles",
     "seed": "babel-node seeders/main.seeder.js --exit",
     "build": "babel -d ./dist ./src -s",
-    "start": "npm run build && node dist/index.js",
+    "start": "node dist/index.js",
     "dev": "nodemon --exec babel-node index.js"
   },
   "repository": {
