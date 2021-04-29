@@ -11,8 +11,8 @@ const app = express()
 
 sequelize.authenticate()
     .then(async () => {
-        await sequelize.sync({ force: true })
-        await userController.autoCreateAdmin();
+        // await sequelize.sync({ force: true })
+        // await userController.autoCreateAdmin();
     }).catch(e => console.log(e));
 
 

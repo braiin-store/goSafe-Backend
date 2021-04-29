@@ -8,13 +8,12 @@
             {
                 "loose": true
             }
+        ],
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "regenerator": true
+            }
         ]
-    ],
-    "env": {
-        "test": {
-            "plugins": [
-                "@babel/plugin-transform-runtime"
-            ]
-        }
-    }
+    ]
 }

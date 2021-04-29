@@ -1,0 +1,14 @@
+# directories
+/.vscode
+/seeders
+/public
+/node_modules
+/src
+/test
+
+# files
+.env
+.env.sample
+.gitignore
+*.md
+index.js

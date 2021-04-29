@@ -12,7 +12,6 @@ class UserController extends Controller {
     constructor() {
         super(User)
     }
-<<<<<<< HEAD
     autoCreateAdmin = async () => {
         try {
             const user = await User.findByPk(1); //root admin id
@@ -24,21 +23,6 @@ class UserController extends Controller {
             }
         } catch (error) {
             console.log(error);
-=======
-    autoCreateAdmin= async()=>{
-       try {
-        const user = await User.findByPk(1); //root admin id
-        const role =await Role.findByPk(1);
-        
-        if (user==null){
-            if(role==null){
-                await Role.create({id:1,name:'administrador'})
-            }
-            let hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD, 10)
-            const rootUser={id:1,name:'administrador',email:process.env.ADMIN_MAIL,password:hashedPassword,RoleId:1}
-            console.log(rootUser);
-             await User.create(rootUser)
->>>>>>> eae5df093fe4af88a7a9f1e314f93f71948bba72
         }
     }
     store = async ({ body }, res) => {
